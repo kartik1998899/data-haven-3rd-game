@@ -1,0 +1,138 @@
+:root{
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #6a5cff;
+  --muted: #6b7280;
+  --cell-size: 110px;
+  --gap: 12px;
+}
+
+/* Background using your provided image */
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+  background-image: url("https://i.ibb.co/4ntLvQRJ/Data-Haven-Hero-For-Animation.png");
+  background-size: cover;
+  background-position: center;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding: 28px;
+}
+
+/* Center card */
+.game-root{
+  width: 100%;
+  max-width: 360px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), var(--card-bg));
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(12,22,55,0.16);
+  backdrop-filter: blur(6px);
+  text-align:center;
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* Header */
+.title{
+  margin: 0;
+  font-size: 1.3rem;
+  color: #0b1020;
+  letter-spacing: 0.2px;
+}
+.status{
+  margin: 8px 0 18px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Board grid */
+.board{
+  display: grid;
+  grid-template-columns: repeat(3, var(--cell-size));
+  gap: var(--gap);
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+/* Cells */
+.cell{
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), #f7f8fb);
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(14,22,40,0.08), inset 0 -2px 6px rgba(0,0,0,0.02);
+  position: relative;
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  user-select: none;
+}
+.cell:focus {
+  outline: none;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(14,22,40,0.12);
+}
+.cell:hover {
+  transform: translateY(-4px);
+}
+
+/* Image inside cell */
+.mark-image{
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  display:block;
+  opacity:0;
+  transform: scale(0.6);
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 200ms ease;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.12));
+  pointer-events: none;
+}
+
+/* when inserted, play pop animation */
+.cell.has-mark .mark-image{
+  opacity:1;
+  transform: scale(1);
+}
+
+/* Visual highlight for winning combination */
+.cell.win {
+  box-shadow: 0 12px 30px rgba(106,92,255,0.24), inset 0 -2px 10px rgba(106,92,255,0.06);
+  transform: translateY(-6px) scale(1.03);
+  transition: transform 260ms, box-shadow 260ms;
+}
+
+/* result banner */
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+.btn{
+  background: linear-gradient(90deg,var(--accent), #8f6aff);
+  color:white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor:pointer;
+  box-shadow: 0 8px 20px rgba(106,92,255,0.18);
+}
+.btn:active{ transform: translateY(1px); }
+
+/* status variants */
+.status.win { color: #0f5132; font-weight:700; }
+.status.lose { color: #6b1207; font-weight:700; }
+.status.draw { color: #475569; font-weight:700; }
+
+/* Responsive */
+@media (max-width:420px){
+  :root{ --cell-size: 82px; --gap:10px; }
+  .game-root{ max-width: 92vw; padding:12px; }
+}
