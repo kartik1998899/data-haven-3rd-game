@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tic Tac Toe — Single Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-root">
+    <header class="header">
+      <h1 class="title">Tic Tac Toe 🎮</h1>
+      <p id="status" class="status">Your Turn</p>
+    </header>
+
+    <section id="board" class="board" aria-label="Tic Tac Toe board">
+      <div class="cell" data-index="0" role="button" aria-label="cell 1" tabindex="0"></div>
+      <div class="cell" data-index="1" role="button" aria-label="cell 2" tabindex="0"></div>
+      <div class="cell" data-index="2" role="button" aria-label="cell 3" tabindex="0"></div>
+      <div class="cell" data-index="3" role="button" aria-label="cell 4" tabindex="0"></div>
+      <div class="cell" data-index="4" role="button" aria-label="cell 5" tabindex="0"></div>
+      <div class="cell" data-index="5" role="button" aria-label="cell 6" tabindex="0"></div>
+      <div class="cell" data-index="6" role="button" aria-label="cell 7" tabindex="0"></div>
+      <div class="cell" data-index="7" role="button" aria-label="cell 8" tabindex="0"></div>
+      <div class="cell" data-index="8" role="button" aria-label="cell 9" tabindex="0"></div>
+    </section>
+
+    <footer class="controls">
+      <button id="restart-button" class="btn">Restart Game</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
